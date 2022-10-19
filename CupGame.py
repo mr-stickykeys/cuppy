@@ -2,14 +2,20 @@
 The Cup Game
 Sticky Keys
 October 2022
-Version: 1.1.0
+Version: 1.2.0
 '''
 
-#import randon to generate a randon nubmer
+#import random to generate a randon nubmer
 import random
 
 print("What Cup Do You Think The Ball Is Under?")
 print("1, 2, or 3?")
+
+#all the following print statementts print cups to the console
+print((("-"+("-"*3)+"-")+(" "*3))*3)
+print(("|"+((" "*3)+"|")+(" "*3))*3)
+print((("| "+ "$" + " |")+(" "*3))*3)
+print((("|"+(" "*3)+"|")+(" "*3))*3)
 
 score = 0
 
