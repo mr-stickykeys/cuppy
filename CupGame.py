@@ -2,7 +2,7 @@
 The Cup Game
 Sticky Keys
 October 2022
-Version: 1.3.0
+Version: 1.4.0
 '''
 
 #import random to generate a randon nubmer
@@ -14,19 +14,19 @@ def showInstructions():
     print(instructions)
 
 #function that is used inside of launchGame() to draw cups on the screen
-def drawCups():
+def drawCups(numberOfCups):
     #all the follwing print statementts print the cups to the console
-    print((("-"+("-"*3)+"-")+(" "*3))*3)
-    print(("|"+((" "*3)+"|")+(" "*3))*3)
-    print((("| "+ "$" + " |")+(" "*3))*3)
-    print((("|"+(" "*3)+"|")+(" "*3))*3)
+    print((("-"+("-"*3)+"-")+(" "*3))*numberOfCups)
+    print(("|"+((" "*3)+"|")+(" "*3))*numberOfCups)
+    print((("| "+ "$" + " |")+(" "*3))*numberOfCups)
+    print((("|"+(" "*3)+"|")+(" "*3))*numberOfCups)
 
 #function that will kick of the game with a specifc number of cups
-def launchGame():
+def launchGame(numberOfCups):
     print("Welcome, Lets Begin.\n")
     
     #call drawCups() to draw a specific number of cups on the console 
-    drawCups()
+    drawCups(numberOfCups)
     
     #gameState keeps track of the current game state
     # 1 = not game over
@@ -41,7 +41,7 @@ def launchGame():
         #print out the score
         print("\nScore: "+str(score))
         #generate a random cup
-        randCup = random.randint(1, 3)
+        randCup = random.randint(1, numberOfCups)
         print(randCup)
         print("Enter \'0\' To Quit The Game.")
         print("Shuffling The Cups...")
@@ -65,7 +65,11 @@ choice = int(input("Choice: "))
 while choice != 3:
 
     if choice == 1:
-        launchGame()
+        mode = int(input("Easy or Hard Mode?\n1 = Easy\n2 = Hard\nMode = "))
+        if mode == 1:
+            launchGame(3)
+        elif mode == 2:
+            launchGame(5)
     elif choice == 2:
         showInstructions()
     elif choice == 3:
